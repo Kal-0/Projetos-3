@@ -83,10 +83,10 @@ Desenvolvedores:
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/Kal-0">
-        <img src="https://avatars.githubusercontent.com/u/106926790?s=400&u=d51d91a8d447afbb4a9d0be21d664b82d7091fc5&v=4" width="100px;" alt="Foto Kal"/><br>
+      <a href="https://github.com/Juillerms">
+        <img src="https://avatars.githubusercontent.com/u/75703772?v=4" width="100px;" alt="Foto Guilherme Lopes"/><br>
         <sub>
-          <b>Caio Cesar</b>
+          <b>Guilherme Lopes</b>
         </sub>
       </a>
     </td>
