@@ -1,0 +1,16 @@
+package NexGem.Libreflix.Entity.General;
+
+public enum CategoriaTema {
+	NACIONAIS,
+	ESTRANGEIROS,
+	CLASSICOS,
+	ATIVISMO,
+	EDUCACAO,
+	TECNOLOGIA,
+	FEMINISMO,
+	NARRATIVA_NEGRA,
+	LGBTQIA,
+	NATUREZA,
+	RELIGIAO,
+	POLITICA;
+}

@@ -1,0 +1,17 @@
+package NexGem.Libreflix.Entity.General;
+
+public enum CategoriaGenero {
+	ACAO,
+	AVENTURA,
+	ANIMACAO,
+	COMEDIA,
+	DOCUMENTARIO,
+	DOCUFICCAO,
+	DRAMA,
+	FICCAO_CIENTIFICA,
+	MUSICAL,
+	ROMANCE,
+	TERROR,
+	SUSPENSE,
+	INFANTIL;
+}
