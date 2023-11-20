@@ -1,30 +1,28 @@
 package NexGem.Libreflix.Entity;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
+import jakarta.persistence.Entity;
 
+@Entity
 public class SerieEntity extends ObraEntity{
 	private int numeroDeTemporadas;
 	private int numeroDeEpisodios;
 	ArrayList<EpisodioEntity> episodios;
 	
 	
-	public SerieEntity(ObraEntity obra,int numeroDeTemporadas, int numeroDeEpisodios,
+	public SerieEntity(long id, String titulo, String subtitulo, LocalDate anoDeProducao,
+			String descricao, String url, String permalink, int numeroDeTemporadas, int numeroDeEpisodios,
 			ArrayList<EpisodioEntity> episodios) {
 		super(
-				obra.getId(),
-				obra.getTitulo(),
-				obra.getSubtitulo(), 
-				obra.getAnoDeProducao(),
-				obra.getCategoria(), 
-				obra.getDescricao(),
-				obra.getViews(),
-				obra.getAvalicaoMedia(),
-				obra.getComentarios(),
-				obra.getUrl(),
-				obra.getPermalink(),
-				obra.getThumbNailImg(),
-				obra.getBackGroungImg()
+				id,
+				titulo,
+				subtitulo,
+				anoDeProducao,
+				descricao,
+				url,
+				permalink
 			);
 		
 		this.numeroDeTemporadas = numeroDeTemporadas;

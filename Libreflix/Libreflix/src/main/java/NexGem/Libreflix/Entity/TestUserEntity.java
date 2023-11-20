@@ -1,27 +1,26 @@
 package NexGem.Libreflix.Entity;
 
-import java.util.ArrayList;
 
-import NexGem.Libreflix.Entity.General.Assiste;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 
 @Entity
-@Table(name = "USUARIOS")
+@Table(name = "USUARIOSTESTE")
 
-public class UsuarioEntity {
+public class TestUserEntity {
 	@Id
+	private int id;
 	private String email;
 	private String nome;
 	private String username;
 	private String senha;
-	private ArrayList<Assiste> videosAssistidosArrayList;
 
-	
-	public UsuarioEntity(String nome, String username, String email, String senha) {
 
+	public TestUserEntity() {}
+	public TestUserEntity(int id, String nome, String username, String email, String senha) {
+		this.id = id;
 		this.nome = nome;
 		this.username = username;
 		this.email = email;
@@ -29,6 +28,12 @@ public class UsuarioEntity {
 	}
 	
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -53,12 +58,8 @@ public class UsuarioEntity {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public ArrayList<Assiste> getVideosAssistidosArrayList() {
-		return videosAssistidosArrayList;
-	}
-	public void setVideosAssistidosArrayList(ArrayList<Assiste> videosAssistidosArrayList) {
-		this.videosAssistidosArrayList = videosAssistidosArrayList;
-	}
+	
 	
 	
 }
+

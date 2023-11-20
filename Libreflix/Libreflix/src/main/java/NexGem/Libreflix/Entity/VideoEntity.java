@@ -1,36 +1,35 @@
 package NexGem.Libreflix.Entity;
 
-import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class VideoEntity extends ObraEntity{
-	private Time duracao;
+	private LocalTime duracao;
 	
 	
-	public VideoEntity(ObraEntity obra, Time duracao) {
+	public VideoEntity(long id, String titulo, String subtitulo, LocalDate anoDeProducao,
+			String descricao, String url, String permalink, LocalTime duracao) {
 		super(
-				obra.getId(),
-				obra.getTitulo(),
-				obra.getSubtitulo(), 
-				obra.getAnoDeProducao(),
-				obra.getCategoria(), 
-				obra.getDescricao(),
-				obra.getViews(),
-				obra.getAvalicaoMedia(),
-				obra.getComentarios(),
-				obra.getUrl(),
-				obra.getPermalink(),
-				obra.getThumbNailImg(),
-				obra.getBackGroungImg()
+				id,
+				titulo,
+				subtitulo,
+				anoDeProducao,
+				descricao,
+				url,
+				permalink
 			);
 		
 		this.duracao = duracao;
 	}
 	
 	
-	public Time getDuracao() {
+	public LocalTime getDuracao() {
 		return duracao;
 	}
-	public void setDuracaoTime(Time duracao) {
+	public void setDuracaoTime(LocalTime duracao) {
 		this.duracao = duracao;
 	}
 	

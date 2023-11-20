@@ -4,9 +4,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import NexGem.Libreflix.Entity.General.Categoria;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-
-public class ObraEntity {
+@Entity
+public abstract class ObraEntity {
+	@Id
 	private long id;
 	private String titulo;
 	private String subtitulo;
@@ -21,24 +24,17 @@ public class ObraEntity {
 	private Byte thumbNailImg;
 	private Byte backGroungImg;
 	
-
-	public ObraEntity(long id, String titulo, String subtitulo, LocalDate anoDeProducao, Categoria categoria,
-			String descricao, int views, double avalicaoMedia, ArrayList<String> comentarios, String url,
-			String permalink, Byte thumbNailImg, Byte backGroungImg) {
+	
+	public ObraEntity(long id, String titulo, String subtitulo, LocalDate anoDeProducao,
+			String descricao, String url, String permalink) {
 		
 		this.id = id;
 		this.titulo = titulo;
 		this.subtitulo = subtitulo;
 		this.anoDeProducao = anoDeProducao;
-		this.categoria = categoria;
 		this.descricao = descricao;
-		this.views = views;
-		this.avalicaoMedia = avalicaoMedia;
-		this.comentarios = comentarios;
 		this.url = url;
 		this.permalink = permalink;
-		this.thumbNailImg = thumbNailImg;
-		this.backGroungImg = backGroungImg;
 	}
 	
 	

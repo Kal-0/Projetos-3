@@ -2,16 +2,27 @@ package NexGem.Libreflix.Entity.General;
 
 import java.util.ArrayList;
 
+import NexGem.Libreflix.Entity.ObraEntity;
+
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Categoria {
+	@Id
+	private ObraEntity obra;
 	private CategoriaTipo tipo;
 	private ArrayList<CategoriaGenero> generos;
 	private ArrayList<CategoriaTema> temas;
 	private CategoriaClassificacaoIndicativa classificacaoIndicativa;
 	
+	public Categoria() {}
 	
-	public Categoria(CategoriaTipo tipo, ArrayList<CategoriaGenero> generos, ArrayList<CategoriaTema> temas,
+	public Categoria(ObraEntity obra, CategoriaTipo tipo, ArrayList<CategoriaGenero> generos, ArrayList<CategoriaTema> temas,
 			CategoriaClassificacaoIndicativa classificacaoIndicativa) {
 		super();
+		this.obra = obra;
 		this.tipo = tipo;
 		this.generos = generos;
 		this.temas = temas;

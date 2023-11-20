@@ -17,6 +17,23 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		
+		<!-- VVVconfigVVV -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <!-- You can specify a version if needed -->
+		    <version>6.1.4.Final</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.33</version>
+		</dependency>
+		
+		
+		<!-- VVVdefaultVVV -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>

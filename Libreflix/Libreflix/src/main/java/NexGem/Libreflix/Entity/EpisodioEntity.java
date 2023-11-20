@@ -1,14 +1,27 @@
 package NexGem.Libreflix.Entity;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+import jakarta.persistence.Entity;
+
+@Entity
 public class EpisodioEntity extends VideoEntity{
 	private SerieEntity serie;
 	private int temporada;
 	
 	
-	public EpisodioEntity(ObraEntity obra, VideoEntity video, SerieEntity serie, int temporada) {
+	public EpisodioEntity(long id, String titulo, String subtitulo, LocalDate anoDeProducao,
+			String descricao, String url, String permalink, LocalTime duracao, SerieEntity serie, int temporada) {
 		super(
-			obra, 
-			video.getDuracao()
+				id,
+				titulo,
+				subtitulo,
+				anoDeProducao,
+				descricao,
+				url,
+				permalink,
+				duracao
 		);
 		
 		this.serie = serie;
@@ -29,6 +42,9 @@ public class EpisodioEntity extends VideoEntity{
 		this.temporada = temporada;
 	}
 	
-	
+	public void addView() {
+		super.addView();
+		serie.addView();
+	}
 	
 }
