@@ -6,22 +6,30 @@ import NexGem.Libreflix.Entity.ObraEntity;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Categoria {
 	@Id
-	private ObraEntity obra;
+	private Long id;
+	@OneToOne(targetEntity = ObraEntity.class)
+	private ObraEntity obra;	
 	private CategoriaTipo tipo;
 	private ArrayList<CategoriaGenero> generos;
 	private ArrayList<CategoriaTema> temas;
 	private CategoriaClassificacaoIndicativa classificacaoIndicativa;
 	
-	public Categoria() {}
+	public Categoria() {
+		
+	}
 	
 	public Categoria(ObraEntity obra, CategoriaTipo tipo, ArrayList<CategoriaGenero> generos, ArrayList<CategoriaTema> temas,
 			CategoriaClassificacaoIndicativa classificacaoIndicativa) {
 		super();
+		this.id = obra.getPK();
 		this.obra = obra;
 		this.tipo = tipo;
 		this.generos = generos;
@@ -30,6 +38,18 @@ public class Categoria {
 	}
 	
 	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public ObraEntity getObra() {
+		return obra;
+	}
+	public void setObra(ObraEntity obra) {
+		this.obra = obra;
+	}
 	public CategoriaTipo getTipo() {
 		return tipo;
 	}

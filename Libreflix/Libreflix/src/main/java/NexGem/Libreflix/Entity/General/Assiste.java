@@ -2,13 +2,29 @@ package NexGem.Libreflix.Entity.General;
 
 import NexGem.Libreflix.Entity.UsuarioEntity;
 import NexGem.Libreflix.Entity.VideoEntity;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+@Entity
 public class Assiste {
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+	@ManyToOne
 	private UsuarioEntity usuario;
+	@ManyToOne
 	private VideoEntity video;
 	private int porcentagem;
 	private int views;
 	
+	
+	public Assiste() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Assiste(UsuarioEntity usuario, VideoEntity video, int porcentagem, int views) {
 		super();

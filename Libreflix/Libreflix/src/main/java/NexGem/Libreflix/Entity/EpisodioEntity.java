@@ -4,14 +4,24 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "EPISODIOS")
 public class EpisodioEntity extends VideoEntity{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@ManyToOne()
 	private SerieEntity serie;
 	private int temporada;
 	
 	
-	public EpisodioEntity(long id, String titulo, String subtitulo, LocalDate anoDeProducao,
+	public EpisodioEntity(Long id, String titulo, String subtitulo, LocalDate anoDeProducao,
 			String descricao, String url, String permalink, LocalTime duracao, SerieEntity serie, int temporada) {
 		super(
 				id,
@@ -42,6 +52,7 @@ public class EpisodioEntity extends VideoEntity{
 		this.temporada = temporada;
 	}
 	
+	@Override
 	public void addView() {
 		super.addView();
 		serie.addView();

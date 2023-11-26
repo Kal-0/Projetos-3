@@ -1,3 +1,5 @@
+<!--
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
 		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
@@ -12,7 +14,26 @@
 		
 		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
 		<property name="hbm2ddl.auto">update</property>
+		
+		<!-/ Mapping entity annotated class /->
+		<mapping class="NexGem.Libreflix.Entity.UsuarioEntity" />
+		<mapping class="NexGem.Libreflix.Entity.ObraEntity" />
+		<mapping class="NexGem.Libreflix.Entity.SerieEntity" />
+		<mapping class="NexGem.Libreflix.Entity.VideoEntity" />
+		<mapping class="NexGem.Libreflix.Entity.EpisodioEntity" />
+		
+		<mapping class="NexGem.Libreflix.Entity.General.Categoria" />
+		<mapping class="NexGem.Libreflix.Entity.General.Assiste" />
+		
+		<!-/
+		<mapping class="NexGem.Libreflix.Entity.TestUserEntity" />
+		<mapping class="NexGem.Libreflix.Entity.TestItemEntity" />
+		<mapping class="NexGem.Libreflix.Entity.TestGroupEntity" />
+		/->
+		
 		
 	</session-factory>
 </hibernate-configuration>
+-->

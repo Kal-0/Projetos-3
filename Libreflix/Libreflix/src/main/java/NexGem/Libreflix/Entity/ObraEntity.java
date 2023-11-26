@@ -2,32 +2,45 @@ package NexGem.Libreflix.Entity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import NexGem.Libreflix.Entity.General.Categoria;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
-public abstract class ObraEntity {
+@Table(name = "OBRAS")
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class ObraEntity implements GenericEntity<Long>{
 	@Id
-	private long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String titulo;
 	private String subtitulo;
 	private LocalDate anoDeProducao;
+	@OneToOne
 	private Categoria categoria;
 	private String descricao;
 	private int views;
 	private double avalicaoMedia;
-	private ArrayList<String> comentarios;
+	private List<String> comentarios = new ArrayList<String>();
 	private String url;
 	private String permalink;
 	private Byte thumbNailImg;
 	private Byte backGroungImg;
 	
+	public ObraEntity() {
+		// TODO Auto-generated constructor stub
+	}
 	
-	public ObraEntity(long id, String titulo, String subtitulo, LocalDate anoDeProducao,
+	public ObraEntity(Long id, String titulo, String subtitulo, LocalDate anoDeProducao,
 			String descricao, String url, String permalink) {
-		
 		this.id = id;
 		this.titulo = titulo;
 		this.subtitulo = subtitulo;
@@ -67,6 +80,7 @@ public abstract class ObraEntity {
 	}
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+		categoria.setObra(this);
 	}
 	public String getDescricao() {
 		return descricao;
@@ -87,7 +101,7 @@ public abstract class ObraEntity {
 		this.avalicaoMedia = avalicaoMedia;
 	}
 	public ArrayList<String> getComentarios() {
-		return comentarios;
+		return (ArrayList<String>)comentarios;
 	}
 	public void setComentarios(ArrayList<String> comentarios) {
 		this.comentarios = comentarios;
@@ -117,7 +131,11 @@ public abstract class ObraEntity {
 		this.backGroungImg = backGroungImg;
 	}
 	
-	
+	@Override
+	public Long getPK() {
+		
+		return getId();
+	}
 	
 	public void addView() {
 		views += 1;

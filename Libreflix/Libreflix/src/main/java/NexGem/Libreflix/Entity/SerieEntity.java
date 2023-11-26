@@ -4,15 +4,19 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "SERIES")
 public class SerieEntity extends ObraEntity{
 	private int numeroDeTemporadas;
 	private int numeroDeEpisodios;
+	@OneToMany(targetEntity = EpisodioEntity.class)
 	ArrayList<EpisodioEntity> episodios;
 	
 	
-	public SerieEntity(long id, String titulo, String subtitulo, LocalDate anoDeProducao,
+	public SerieEntity(Long id, String titulo, String subtitulo, LocalDate anoDeProducao,
 			String descricao, String url, String permalink, int numeroDeTemporadas, int numeroDeEpisodios,
 			ArrayList<EpisodioEntity> episodios) {
 		super(
