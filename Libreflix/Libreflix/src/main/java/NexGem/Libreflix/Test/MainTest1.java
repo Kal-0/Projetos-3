@@ -51,7 +51,7 @@ public class MainTest1 {
 		UsuarioEntity uGet = uDao.findByPK(UsuarioEntity.class, 1L);
 		System.out.println(uGet.getNome());
 		
-		String jpql = "SELECT u FROM UsuarioEntity u WHERE u.nome = :nome";
+		String jpql = "SELECT e FROM UsuarioEntity e WHERE e.nome = :nome";
 		jpql = jpql.replace(":nome", "'nome2'");
 		
 		List<UsuarioEntity> lu1 = uDao.findByJpql(UsuarioEntity.class, jpql);

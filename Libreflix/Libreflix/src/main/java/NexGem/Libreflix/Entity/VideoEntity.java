@@ -49,7 +49,6 @@ public class VideoEntity extends ObraEntity{
 	public void addVisualizacao(Assiste visualizacao) {
 		visualizacoes.add(visualizacao);
 	}
-	
 	public void removerVisualizacao(Assiste visualizacao) {
 		visualizacoes.remove(visualizacao);
 	}

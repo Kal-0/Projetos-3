@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import NexGem.Libreflix.Entity.General.Categoria;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,6 +32,8 @@ public abstract class ObraEntity implements GenericEntity<Long>{
 	private String descricao;
 	private int views;
 	private double avalicaoMedia;
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name = "OBRAS_COMENTARIOS")
 	private List<String> comentarios = new ArrayList<String>();
 	private String url;
 	private String permalink;
@@ -105,6 +110,12 @@ public abstract class ObraEntity implements GenericEntity<Long>{
 	}
 	public void setComentarios(ArrayList<String> comentarios) {
 		this.comentarios = comentarios;
+	}
+	public void addComentario(String comentario) {
+		comentarios.add(comentario);
+	}
+	public void removeComentario(String comentario) {
+		comentarios.remove(comentario);
 	}
 	public String getUrl() {
 		return url;
