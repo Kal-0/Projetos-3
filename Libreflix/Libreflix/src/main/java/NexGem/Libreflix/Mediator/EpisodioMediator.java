@@ -1,5 +1,5 @@
 package NexGem.Libreflix.Mediator;
 
-public class VideoMediator {
+public class EpisodioMediator {
 
 }
