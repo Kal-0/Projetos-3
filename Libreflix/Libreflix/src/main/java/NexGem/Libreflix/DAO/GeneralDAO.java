@@ -11,7 +11,7 @@ import jakarta.persistence.Query;
 //singleton
 public class GeneralDAO<T,PK> implements GenericDAO<T, PK>{
 	public static GeneralDAO<?,?> dao = null;
-	EntityManager em;
+	private EntityManager em;
 	
 	
 	private GeneralDAO() {
