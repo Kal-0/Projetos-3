@@ -59,14 +59,6 @@ Desenvolvedores:
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/camilacirne">
-        <img src="https://avatars.githubusercontent.com/u/28824856?v=4" width="100px;" alt="Foto Camila Cirne"/><br>
-        <sub>
-          <b>Camila Cirne</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
       <a href="https://github.com/lainereis2002">
         <img src="https://avatars.githubusercontent.com/u/116602650?v=4" width="100px;" alt="Foto Gislaine Reis"/><br>
         <sub>
