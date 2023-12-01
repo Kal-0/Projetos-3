@@ -6,38 +6,26 @@ Este repositório sera usado para o desenvolvimento de uma solução para o site
 <img src="https://github.com/Kal-0/Projetos-3/assets/106926790/936b7897-ef0e-4d67-baab-a907efd32b74" alt="logo_image" style="width: 50%; height: 50%;">
 
 # Objetivo | Goal
-
-
-# Arquivos presentes 📄 
-
+Desenvolver uma aplicação para gerenciamento de acervos e suas categorizacões da plataforma libreflix
 
 # Requisitos
 1- Git Bash <br>
 2- JDK - 21.0.1 <br>
+3- MySql - 8.0 <br>
 
 # Como usar
 1- Clone o repositório em uma pasta <br>
-2- Abra o a pasta do repositório <br>
-3- Gere o executavel inserindo esse o comando no terminal: <br>
+2- Abra o a pasta do repositório em uma IDE de desenvolvomento java <br>
+3- Crie um banco de dados MySql com o nome: <br>
 ```
-gcc main.c utils.c ./sqlite3/sqlite3.c -o ./executables/hclass.exe
+LibreflixDB
 ```
-4- Execute o programa inserindo esse o comando no terminal: <br>
-```
-./executables/hclass.exe
-```
-
-
-# Observações 👀
-
-
-# Contribuintes | Contributors
-
-
+4- Inicialize o banco de dados <br>
+5- Execute o codigo de teste T2 para popular o banco de dados <br>
 
 ## 🤝 Colaboradores
 
-Agradecemos às seguintes pessoas que contribuíram para este projeto:
+Desenvolvedores que contribuíram para este projeto:
 
 Desenvolvedores:
 <table>
