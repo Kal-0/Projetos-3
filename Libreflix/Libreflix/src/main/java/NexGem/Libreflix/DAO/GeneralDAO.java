@@ -2,67 +2,60 @@ package NexGem.Libreflix.DAO;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
+
 import NexGem.Libreflix.DAO.Utils.JPAUtils;
+import NexGem.Libreflix.Entity.GenericEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
 
 
-//singleton
-public class GeneralDAO<T,PK> implements GenericDAO<T, PK>{
-	public static GeneralDAO<?,?> dao = null;
+public class GeneralDAO<T extends GenericEntity<PK>,PK> implements GenericDAO<T, PK>{
 	private EntityManager em;
 	
 	
-	private GeneralDAO() {
+	public GeneralDAO() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static synchronized <T,PK> GeneralDAO<T,PK> getDao() {
-		if(dao == null) {
-			dao = new GeneralDAO<>();
-			
+	
+	
+	public void openSession() {
+		if(em == null || em.isOpen() == false) {
+			em = JPAUtils.getEntityManager();
+			em.getTransaction().begin();
 		}
-		
-		return (GeneralDAO<T,PK>)dao;
 	}
 	
+	public void closeSession() {
+		if(em.isOpen() == true) {
+			em.getTransaction().commit();
+			em.close();
+		}
+	}
 	
 //	implements
 	@Override
 	public void save(T entity) {
-		em = JPAUtils.getEntityManager();
-		em.getTransaction().begin();
 		em.persist(entity);
-		em.getTransaction().commit();
-		em.close();
 	}
 	@Override
 	public void update(T entity) {
-		em = JPAUtils.getEntityManager();
-		em.getTransaction().begin();
 		em.merge(entity);
-		em.getTransaction().commit();
-		em.close();
 	}
 	@Override
 	public void remove(T entity) {
-		em = JPAUtils.getEntityManager();
 		em.getTransaction().begin();
 		em.remove(entity);
 		em.getTransaction().commit();
-		em.close();
 	}
 	@Override
 	public T findByPK(Class<T> clazz, PK pk) {
 		T foundEntity;
 		
-		em = JPAUtils.getEntityManager();
-		em.getTransaction().begin();
 //		System.out.println(clazz.getName());
-		foundEntity = em.find(clazz, pk);
-		em.getTransaction().commit();
-		em.close();
+		foundEntity = em.find(clazz, pk); 
 		
 		return foundEntity;
 	}
@@ -72,10 +65,8 @@ public class GeneralDAO<T,PK> implements GenericDAO<T, PK>{
 		String jpql = "SELECT x FROM :class x";
 		jpql = jpql.replace(":class", clazz.getName());
 		
-		em = JPAUtils.getEntityManager();
 		Query query = em.createQuery(jpql, clazz);
 		result = query.getResultList();
-		em.close();
 		
 		return result;
 	}
@@ -83,10 +74,9 @@ public class GeneralDAO<T,PK> implements GenericDAO<T, PK>{
 	public List<T> findByJpql(Class<T> clazz, String jpql) {
 		List<T> result;
 		
-		em = JPAUtils.getEntityManager();
+		
 		Query query = em.createQuery(jpql, clazz);
 		result = query.getResultList();
-		em.close();
 		
 		return result;
 	}

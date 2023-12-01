@@ -1,12 +1,11 @@
 package NexGem.Libreflix.Test;
 
+import java.time.Duration;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import NexGem.Libreflix.DAO.GeneralDAO;
-import NexGem.Libreflix.DAO.Utils.JPAUtils;
 import NexGem.Libreflix.Entity.EpisodioEntity;
 import NexGem.Libreflix.Entity.SerieEntity;
 import NexGem.Libreflix.Entity.UsuarioEntity;
@@ -31,19 +30,19 @@ public class MainTest1 {
 		UsuarioEntity u1 = new UsuarioEntity(null, "nome1", "username1", "email1", "senha1");
 		UsuarioEntity u2 = new UsuarioEntity(null, "nome2", "username2", "email2", "senha2");
 		
-		VideoEntity v1 = new VideoEntity(null, "titulo1", "sub1", LocalDate.of(1999, 12, 31), "desc1", "url1", "permalink1", LocalTime.of(1, 45, 13));
-		VideoEntity v2 = new VideoEntity(null, "titulo2", "sub2", LocalDate.of(2004, 12, 31), "desc2", "url2", "permalink2", LocalTime.of(2, 45, 13));
+		VideoEntity v1 = new VideoEntity(null, "titulo1", "sub1", LocalDate.of(1999, 12, 31), "desc1", "url1", "permalink1", Duration.ofHours(1).plusMinutes(45).plusSeconds(30));
+		VideoEntity v2 = new VideoEntity(null, "titulo2", "sub2", LocalDate.of(2004, 12, 31), "desc2", "url2", "permalink2", Duration.ofHours(1).plusMinutes(45).plusSeconds(30));
 		
 		
 		
 ////		===generalDAO===
 		
-		GeneralDAO<UsuarioEntity, Long> uDao = GeneralDAO.getDao();
-		GeneralDAO<SerieEntity, Long> sDao = GeneralDAO.getDao();
-		GeneralDAO<VideoEntity, Long> vDao = GeneralDAO.getDao();
-		GeneralDAO<EpisodioEntity, Long> eDao = GeneralDAO.getDao();
-		GeneralDAO<Categoria, Long> cDao = GeneralDAO.getDao();
-		GeneralDAO<Assiste, Long> aDao = GeneralDAO.getDao();
+		GeneralDAO<UsuarioEntity, Long> uDao = new GeneralDAO<>();
+		GeneralDAO<SerieEntity, Long> sDao = new GeneralDAO<>();
+		GeneralDAO<VideoEntity, Long> vDao = new GeneralDAO<>();
+		GeneralDAO<EpisodioEntity, Long> eDao = new GeneralDAO<>();
+		GeneralDAO<Categoria, Long> cDao = new GeneralDAO<>();
+		GeneralDAO<Assiste, Long> aDao = new GeneralDAO<>();
 		
 		uDao.save(u1);
 		uDao.save(u2);
@@ -77,7 +76,7 @@ public class MainTest1 {
 		VideoEntity vGet = vDao.findByPK(VideoEntity.class, 1l);
 		System.out.println(vGet.getCategoria().getTemas().get(0));
 //		mediator: td vez q assistir tem q att o usuario e o video
-		Assiste a1 = new Assiste(u1, v1, 40, 2);
+		Assiste a1 = new Assiste(u1, v1);
 		u1.addVideoAssistido(a1);
 		v1.addVisualizacao(a1);
 		

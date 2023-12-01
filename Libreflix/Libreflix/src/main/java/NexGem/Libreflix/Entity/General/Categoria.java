@@ -3,6 +3,7 @@ package NexGem.Libreflix.Entity.General;
 import java.util.ArrayList;
 import java.util.List;
 
+import NexGem.Libreflix.Entity.GenericEntity;
 import NexGem.Libreflix.Entity.ObraEntity;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.ElementCollection;
@@ -16,7 +17,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "CATEGORIAS")
-public class Categoria {
+public class Categoria implements GenericEntity<Long>{
 	@Id
 	private Long id;
 	@OneToOne(targetEntity = ObraEntity.class)
@@ -97,6 +98,12 @@ public class Categoria {
 	}
 	public void setClassificacaoIndicativa(CategoriaClassificacaoIndicativa classificacaoIndicativa) {
 		this.classificacaoIndicativa = classificacaoIndicativa;
+	}
+
+	@Override
+	public Long getPK() {
+		
+		return getId();
 	}
 	
 	

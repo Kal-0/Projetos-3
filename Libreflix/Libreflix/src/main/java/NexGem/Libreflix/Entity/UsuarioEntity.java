@@ -6,6 +6,7 @@ import java.util.List;
 import NexGem.Libreflix.Entity.General.Assiste;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
@@ -23,6 +24,7 @@ public class UsuarioEntity implements GenericEntity<Long> {
 	private String nome;
 	private String username;
 	private String senha;
+	
 	@OneToMany(targetEntity = Assiste.class)
     private List<Assiste> videosAssistidos = new ArrayList<Assiste>();
 

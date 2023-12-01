@@ -1,7 +1,7 @@
 package NexGem.Libreflix.Entity;
 
+import java.time.Duration;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "VIDEOS")
 public class VideoEntity extends ObraEntity{
-	private LocalTime duracao;
+	private Duration duracao;
 	
 	@OneToMany(targetEntity = Assiste.class)
 	private List<Assiste> visualizacoes = new ArrayList<>();
@@ -24,7 +24,7 @@ public class VideoEntity extends ObraEntity{
 	}
 	
 	public VideoEntity(Long id, String titulo, String subtitulo, LocalDate anoDeProducao,
-			String descricao, String url, String permalink, LocalTime duracao) {
+			String descricao, String url, String permalink, Duration duracao) {
 		super(
 				id,
 				titulo,
@@ -39,13 +39,15 @@ public class VideoEntity extends ObraEntity{
 	}
 	
 	
-	public LocalTime getDuracao() {
+	public Duration getDuracao() {
 		return duracao;
 	}
-	public void setDuracaoTime(LocalTime duracao) {
+	public void setDuracaoTime(Duration duracao) {
 		this.duracao = duracao;
 	}
-	
+	public List<Assiste> getVisualizacoes(){
+		return visualizacoes;
+	}
 	public void addVisualizacao(Assiste visualizacao) {
 		visualizacoes.add(visualizacao);
 	}

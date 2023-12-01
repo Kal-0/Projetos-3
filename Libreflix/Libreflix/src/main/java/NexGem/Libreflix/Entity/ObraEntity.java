@@ -105,10 +105,10 @@ public abstract class ObraEntity implements GenericEntity<Long>{
 	public void setAvalicaoMedia(double avalicaoMedia) {
 		this.avalicaoMedia = avalicaoMedia;
 	}
-	public ArrayList<String> getComentarios() {
-		return (ArrayList<String>)comentarios;
+	public List<String> getComentarios() {
+		return (List<String>)comentarios;
 	}
-	public void setComentarios(ArrayList<String> comentarios) {
+	public void setComentarios(List<String> comentarios) {
 		this.comentarios = comentarios;
 	}
 	public void addComentario(String comentario) {

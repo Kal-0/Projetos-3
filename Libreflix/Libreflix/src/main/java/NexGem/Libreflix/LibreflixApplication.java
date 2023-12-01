@@ -9,5 +9,5 @@ public class LibreflixApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LibreflixApplication.class, args);
 	}
-
+	
 }

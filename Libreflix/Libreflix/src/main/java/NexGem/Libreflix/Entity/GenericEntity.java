@@ -1,5 +1,5 @@
 package NexGem.Libreflix.Entity;
 
-public interface GenericEntity<T>{
-	public T getPK();
+public interface GenericEntity<PK>{
+	public PK getPK();
 }
